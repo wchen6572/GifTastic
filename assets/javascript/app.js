@@ -1,15 +1,15 @@
 
 $(document).ready(function() {
-    var gifTitle = ["Dog", "Cat"];
+    var topics = ["Dog", "Cat"];
 
     function renderButtons(){
         $("#gif-view").empty();
 
-        for (i=0; i<gifTitle.length; i++){
+        for (i=0; i<topics.length; i++){
             var btn = $("<button>");
             btn.addClass("gifs");
-            btn.attr("gif-name", gifTitle[i]);
-            btn.text(gifTitle[i]);
+            btn.attr("gif-name", topics[i]);
+            btn.text(topics[i]);
             $("#gif-view").append(btn);
             // console.log ("HELLO");
             
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
         var gif = $(this).attr("gif-name");
         var apiKey = "mJ2ciLZg7WQFPFtBX9pQK6yg6hTDhW4k";
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + apiKey;
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=" + apiKey;
         
 
         // Creates AJAX call for the specific movie button being clicked
@@ -83,7 +83,7 @@ $(document).ready(function() {
     $("#add-gif").on('click', function(event){
         event.preventDefault();
         var gif = $("#gif-input").val().trim();
-        gifTitle.push(gif);
+        topics.push(gif);
         console.log("i've been clicked");
         renderButtons();
 
